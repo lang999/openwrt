@@ -126,7 +126,8 @@ dns:
   fake-ip-range: 198.20.0.1/16
   nameserver:
     - 223.5.5.5
-    - 114.114.114.114
+    - 218.201.96.130
+    - 119.29.29.29
   fake-ip-filter:
     - +.lan
     - +.local
@@ -160,6 +161,8 @@ default: &default
     - 直连
     - 所有-智选
     - 所有-手选
+    - 中国-智选
+    - 中国-故转
     - 香港-智选
     - 香港-故转
     - 台湾-故转
@@ -174,8 +177,14 @@ default: &default
 proxy-groups:
 
   # 业务分流组
-
+  - {name: DouYin, <<: *default}
+  - {name: KuaiShou, <<: *default}
   - {name: ChatGPT, <<: *default}
+  - {name: Gemini, <<: *default}
+  - {name: Copilot, <<: *default}
+  - {name: Perplexity, <<: *default}
+  - {name: Claude, <<: *default}
+  - {name: Meta AI, <<: *default}
   - {name: GitHub, <<: *default}
   - {name: Reddit, <<: *default}
   - {name: Telegram, <<: *default}
@@ -187,8 +196,12 @@ proxy-groups:
   - {name: HBO, <<: *default}
   - {name: Disney, <<: *default}
   - {name: Amazon, <<: *default}
+  - {name: Crunchyroll, <<: *default}
+  - {name: Spotify, <<: *default}
+  - {name: Nvidia, <<: *default}
   - {name: Steam, <<: *default}
   - {name: Games, <<: *default}
+  - {name: Crypto, <<: *default}
   - {name: Apple, <<: *default}
   - {name: Google, <<: *default}
   - {name: Microsoft, <<: *default}
@@ -208,11 +221,35 @@ proxy-groups:
   - name: 所有-智选
     type: smart
     include-all: true
-    policy-priority: "香港:1.2;自由:0.8"
+    policy-priority: "香港:1.2;云更新:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "^((?!(直连|拒绝)).)*$"
+     
+  # 中国组
+  
+  - name: 中国-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 中国-手选
+      - 中国-智选
+  
+  - name: 中国-手选
+    type: select
+    include-all: true
+    filter: "(?=.*(广州|北京|青岛|CN|合肥|中国|🇨🇳|cn)).*$"
+    
+  - name: 中国-智选
+    type: smart
+    include-all: true
+    policy-priority: "CN:0.8;国内:1.2"
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(广州|北京|青岛|CN|合肥|中国|🇨🇳)).*$"
 
   # 香港组
 
@@ -232,7 +269,7 @@ proxy-groups:
   - name: 香港-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "HK:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -254,7 +291,7 @@ proxy-groups:
   - name: 台湾-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "TW:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -276,7 +313,7 @@ proxy-groups:
   - name: 日本-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "JP:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -298,7 +335,7 @@ proxy-groups:
   - name: 新加坡-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "SG:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -320,7 +357,7 @@ proxy-groups:
   - name: 韩国-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "KR:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -342,7 +379,7 @@ proxy-groups:
   - name: 美国-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "US:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -364,7 +401,7 @@ proxy-groups:
   - name: 英国-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "UK:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -386,7 +423,7 @@ proxy-groups:
   - name: 其他-智选
     type: smart
     include-all: true
-    policy-priority: "自由:0.8"
+    policy-priority: "HK:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -397,9 +434,16 @@ proxy-groups:
 # ========================
 rules:
 
+  - RULE-SET,DouYin / Domain,DouYin
+  - RULE-SET,KuaiShou / Domain,KuaiShou
   - RULE-SET,TEST / Domain,Test
   - RULE-SET,Block / Domain,Block  
   - RULE-SET,ChatGPT / Domain,ChatGPT
+  - RULE-SET,Claude / Domain,Claude
+  - RULE-SET,Meta AI / Domain,Meta AI
+  - RULE-SET,Perplexity / Domain,Perplexity
+  - RULE-SET,Copilot / Domain,Copilot
+  - RULE-SET,Gemini / Domain,Gemini
   - RULE-SET,Reddit / Domain,Reddit 
   - RULE-SET,GitHub / Domain,GitHub
   - RULE-SET,Telegram / Domain,Telegram
@@ -409,13 +453,18 @@ rules:
   - RULE-SET,Apple / Domain,Apple
   - RULE-SET,Apple-CN / Domain,Apple  
   - RULE-SET,Microsoft / Domain,Microsoft
+  - RULE-SET,OKX / Domain,Crypto
+  - RULE-SET,Bybit / Domain,Crypto
+  - RULE-SET,Binance / Domain,Crypto
   - RULE-SET,Youtube / Domain,YouTube
   - RULE-SET,TikTok / Domain,TikTok
   - RULE-SET,Netflix / Domain,Netflix
   - RULE-SET,Netflix / IP,Netflix,no-resolve
   - RULE-SET,Disney / Domain,Disney
   - RULE-SET,Amazon / Domain,Amazon
+  - RULE-SET,Crunchyroll / Domain,Crunchyroll
   - RULE-SET,HBO / Domain,HBO
+  - RULE-SET,Spotify / Domain,Spotify
   - RULE-SET,Steam / Domain,Steam
   - RULE-SET,Epic / Domain,Games
   - RULE-SET,EA / Domain,Games
@@ -425,6 +474,7 @@ rules:
   - RULE-SET,Nintend / Domain,Games
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
+  - RULE-SET,Nvidia / Domain,Nvidia 
   - RULE-SET,Telegram / IP,国外
   - RULE-SET,Telegram / Domain,国外
   - RULE-SET,Proxy / Domain,国外
@@ -444,8 +494,15 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers:
+  DouYin / Domain: {<<: *class, url: "http://43.132.131.30:9999/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/DouYin/DouYin.list"}
+  KuaiShou / Domain: {<<: *class, url: "http://43.132.131.30:9999/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/KuaiShou/KuaiShou.list"}
   TEST / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Check.list"}
   ChatGPT / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/openai.mrs"}
+  Claude / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.list"}
+  Meta AI / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/MetaAi.list"}
+  Perplexity / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/perplexity.mrs"}
+  Copilot / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Copilot.list"}
+  Gemini / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Gemini.list"}
   GitHub / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/github.mrs"}
   Telegram / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/telegram.mrs"}  
   Telegram / IP: {<<: *ip, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.mrs"}
@@ -464,6 +521,7 @@ rule-providers:
   Netflix / IP: {<<: *ip, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/netflix.mrs"}
   Disney / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/disney.mrs"}
   HBO / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/hbo.mrs"}
+  Spotify / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"}
   Steam / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/steam.mrs"}
   Epic / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list"}
   EA / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.list"}
@@ -478,6 +536,8 @@ rule-providers:
   China / IP: {<<: *ip, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs"}
   Block / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Block.list"}
+  Nvidia / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Nvidia/Nvidia.list"}
+  Crunchyroll / Domain: {<<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Crunchyroll.list"}
   Reddit / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/reddit.mrs"}
   Youtube / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/youtube.mrs"}  
   Google / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"}  
