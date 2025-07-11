@@ -2,8 +2,8 @@
 
 proxy-providers:
 
-  1:
-    url: "https://gh-proxy.com/raw.githubusercontent.com/mifeng8901/sub/refs/heads/main/2025/3/03-27-08-36.yaml"
+  订阅7:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fzh.momobaby.org%2Fdownload%2Fclash%2F530f398baf689a4f105d8f47bda3da6fdcfccef52e500fd7987d3b9fa14957d2%3Fconfig_name%3DLiNigori&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -12,8 +12,8 @@ proxy-providers:
       interval: 300
     proxy: 直连 
     
-  2:
-    url: "https://gh-proxy.com/raw.githubusercontent.com/mifeng8901/sub/refs/heads/main/2025/3/03-29-08-22.yaml"
+  订阅6:
+    url: "https://gh-proxy.com/raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
     type: http
     interval: 86400
     health-check:
@@ -22,8 +22,8 @@ proxy-providers:
       interval: 300
     proxy: 直连    
 
-  3:
-    url: "https://cdn.gh-proxy.com/raw.githubusercontent.com/go4sharing/sub/refs/heads/main/clash.yaml"
+  订阅5:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fproject-e.ekt.me%2Fsub%3Ftoken%3D%25E5%2586%25B2%25E6%25B5%25AA%25E5%25BF%2585%25E5%25A4%2587&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -32,8 +32,8 @@ proxy-providers:
       interval: 300
     proxy: 直连    
 
-  4:
-    url: "https://down.nigx.cn/cdn.z.wiki/autoupload/20250414/ldXJ/裤佬自费无限流量♾️.yaml"
+  订阅4:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fgy.lzjbaby.com%2Fsub%3Ftoken%3Dlzjnb&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -42,8 +42,8 @@ proxy-providers:
       interval: 300
     proxy: 直连      
   
-  无界:
-    url: "https://ys.jiedianxielou.workers.dev"
+  订阅3:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fwy.flylink.cyou%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D2520b08af24e25cd48af4f09a59a1054&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -53,7 +53,7 @@ proxy-providers:
     proxy: 直连   
    
   自由:
-    url: "http://38.207.160.46:6699/https://raw.githubusercontent.com/anaer/Sub/refs/heads/main/proxies.yaml"
+    url: "http://38.207.160.46:6699/https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml"
     type: http
     interval: 86400
     health-check:
@@ -62,8 +62,8 @@ proxy-providers:
       interval: 300
     proxy: 直连   
 
-  快:
-    url: "https://a.nodeshare.xyz/uploads/2025/7/20250709.yaml"
+  订阅2:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fzh.momobaby.org%2Fdownload%2Fclash%2F110a467c7093621367bf1fd5943f5aaa883603b5f18538e01f0e74b3eddc1a1c%3Fconfig_name%3DLiNigori369%252B&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -72,8 +72,8 @@ proxy-providers:
       interval: 300
     proxy: 直连 
     
-  B:
-    url: "https://blog.whereisdoge.work/https://raw.githubusercontent.com/hello-world-1989/cn-news/refs/heads/main/clash.yaml"
+  订阅1:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fi.ilikeu.dpdns.org%2Fsub%3Fuuid%3D9dd24d01-2b7a-4bd8-8c76-129d6ca89b8c%26encryption%3Dnone%26security%3Dtls%26sni%3Dkawaiifreevpn-7ds.pages.dev%26type%3Dws%26host%3Dkawaiifreevpn-7ds.pages.dev%26path%3D%252F%253Fed%253D2560&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
@@ -82,8 +82,8 @@ proxy-providers:
       interval: 300
     proxy: 直连
 
-  中国:
-    url: "https://project-a.ekt.me/sub?token=%E4%B8%80%E9%94%AE%E5%9B%9E%E5%9B%BD"
+  国内:
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fproject-a.ekt.me%2Fsub%3Ftoken%3D%25E4%25B8%2580%25E9%2594%25AE%25E5%259B%259E%25E5%259B%25BD&insert=false&config=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FSleepyHeeead%2Fsubconverter-config%40master%2Fremote-config%2Fspecial%2Fbasic.ini&append_type=true&emoji=true&list=false&tfo=false&scv=true&fdn=true&expand=true&sort=true&udp=true&new_name=true"
     type: http
     interval: 86400
     health-check:
