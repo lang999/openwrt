@@ -82,8 +82,8 @@ proxy-providers:
       interval: 300
     proxy: 直连
 
-  牛:
-    url: "https://github.001315.xyz/https://gist.githubusercontent.com/shaoyouvip/9dc3d23482fdc4a19e407a7e944782b8/raw/all.yaml"
+  中国:
+    url: "https://project-a.ekt.me/sub?token=%E4%B8%80%E9%94%AE%E5%9B%9E%E5%9B%BD"
     type: http
     interval: 86400
     health-check:
